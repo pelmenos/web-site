@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="main">
+            <div class="text">
+                <h1></h1>
+                <p>Мы один из приютов города Новосибирск.</p>
+                <p>Мы ухаживаем за каждой кошечкой или собачкой, которые к нам попадают, до тех пор, пока не найдём ему нового хозяйна.</p>
+                <p>Хочешь узнать больше о наших питомцах?</p>
+            </div>
+            <div class="group_cards">
+                <div class="card">
+                    <img src="{% static 'img/pesek.jpg' %}" alt="Пёсик" style="width:100%">
+                    <h1>Наши пёсики</h1>
+                    <p>Верные и добрые друзья, готовые провести с вами вечер</p>
+                    <a href="{% url 'dog'%}"><p><button>Хочу их</button></p></a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/kit.jpg' %}" alt="Котейка" style="width:100%">
+                    <h1>Наши котики</h1>
+                    <p>Ласковые и милые друзья, готовые лежать с вами целый день</p>
+                    <a href="{% url 'cat' %}"><p><button>Хочу их</button></p></a>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="footer">
+
+    </div>
+{% endblock content %}

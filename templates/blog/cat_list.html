@@ -1,0 +1,93 @@
+{% extends 'base.html'%}
+{%block title%}Кошечки{%endblock title%}
+
+{%block btn%}
+{%if user.is_superuser%}
+    <a href="{% url 'addcat' %}"><button class="login_button">Добавить питомца</button></a>
+{%endif%}
+{%endblock btn%}
+
+{% block content %}
+        <h1 class="name_page">
+            Н<br>
+            а<br>
+            ш<br>
+            и<br>
+            <br>
+            к<br>
+            о<br>
+            ш<br>
+            е<br>
+            ч<br>
+            к<br>
+            и<br>
+
+        </h1>
+
+
+        
+        <div class="container">
+
+            {% for cat in cat_list %}
+            <div id="containers">	
+        
+                <!-- Start	Product details -->
+                    <div class="product-details">
+                        
+                        <!-- 	Product Name -->
+                    <!-- <h1>Biru Putaran</h1> -->
+                <!-- 		<span class="hint new">New</span> -->
+                <!-- 		<span class="hint free-shipping">Free Shipping</span> -->
+                <!-- 		the Product rating -->
+                        
+                    
+                <!-- The most important information about the product -->
+                        <p class="information">{{cat.text}}</p>
+
+
+
+                <!-- 		Control -->
+                <div class="control">
+                    
+                    <!-- Start Button buying -->
+                    <a href="{{cat.get_absolute_url}}"><button class="btnq">
+                    <!-- 		Buy Now / ADD to Cart-->
+                        {% if cat.sex.slug == 'male'%}
+                        <span class="buy">Хочу его</span>
+                        {% else %}
+                        <span class="buy">Хочу её</span>
+                        {% endif %}
+                    </button></a>
+                        <!-- End Button buying -->
+                    
+                </div>
+                            
+                </div>
+                    
+                <!-- 	End	Product details   -->
+                    
+                    
+                    
+                <!-- 	Start product image & Information -->
+                    
+                <div class="product-image">
+                    
+                    <img src="{{cat.img.url}}" alt="Omar Dsoky">
+                    
+                <!-- 	product Information-->
+                <div class="info">
+                    <h2>Описание</h2>
+                    <ul>
+                        <li><strong>Пол: </strong>{{cat.sex}}</li>
+                        <li><strong>Порода: </strong>{{cat.breed}}</li>
+                        <li><strong>Окрас: </strong>{{cat.color}}</li>
+                        <li><strong>Возраст: </strong>~ {{cat.age}}</li>
+                    </ul>
+                </div>
+                </div>
+                <!--  End product image  -->
+            </div>
+            {% endfor %}
+        </div>
+<div class="footer"></div>
+{% endblock content%}

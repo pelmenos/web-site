@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{%block title%}Питомец{%endblock title%}
+
+{%block content%}
+        <div class="container">
+            
+            <div class="pos_img">
+                <p class="fig"><img class="round_img" src="{{pet.img.url}}" alt="netu peseka"></p>
+            </div>
+            <div class="main" style="border-top: 2px solid #e6007e; position: relative; bottom: 128px;">
+                <div class="text_us" style="margin-bottom: 50px; margin-top: 50px;">
+                    <ul>
+                        <li><strong>Пол: </strong>{{pet.sex}}</li>
+                        <li><strong>Порода: </strong>{{pet.breed}}</li>
+                        <li><strong>Окрас: </strong>{{pet.color}}</li>
+                        <li><strong>Возраст: </strong>~ {{pet.age}}</li>
+                    </ul>
+                </div>
+                <div class="text_us">{{pet.text}}</div>
+                <button class="btnq" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px; background: violet;">
+                        {% if pet.sex.slug == 'male'%}
+                        <span class="buy">Дайте мне его</span>
+                        {% else %}
+                        <span class="buy">Дайте мне её</span>
+                        {% endif %}
+                </button>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+{% endblock content%}

@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+
+{%block title%}Добавление{%endblock title%}
+
+
+{% block content%}
+<div class="container">
+<div class="main">
+    <div class="text_us">
+    <h1>Добавление котика</h1>
+    </div>
+    <form action="{% url 'addcat'%}" method="post" enctype="multipart/form-data">
+        {% csrf_token%}
+        <div class="text_us">
+            {% for field in form %}
+            <div class="form-group">
+                {{field.label_tag}}
+                <div>{{field}}</div>
+                {% if field.errors%}
+                {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="sub_button">Добавить</button>
+        </div>
+    </form>
+</div>
+</div>
+
+{% endblock content%}

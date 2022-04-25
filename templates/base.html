@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>{%block title%}{%endblock title%}</title>
+        <link rel="stylesheet" href="{% static 'css/style.css'%}">
+        <link rel="stylesheet" href="{% static 'css/workcss.css' %}">
+
+        
+
+        <link href="https://fonts.googleapis.com/css?family=Abel|Advent+Pro|Alegreya|Alice|Amaranth|Arapey|Aref+Ruqaa|Bentham|Bubbler+One|Cantata+One|Chathura|Convergence|Domine|Droid+Serif|Gentium+Basic|Lato|Libre+Baskerville|Lora|Marvel|Merriweather|Nunito|Old+Standard+TT|Open+Sans|Oranienbaum|Oswald|Prata|Quicksand|Rufina|Ruluko|Rum+Raisin|Saira|Saira+Condensed|Saira+Extra+Condensed|Sansita|Snippet|Text+Me+One|Titillium+Web|Vidaloka|Wire+One" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    </head>
+<body id="top" style="background: url({% static 'img/fon.png' %})">
+    <header class="header">
+
+        <div class="container">
+
+            <a href="{% url 'main'%}"><span class="logo">Kennel</span></a>
+            {% if user.is_authenticated %}
+                <div class="btns">
+                    {%block btn%}{%endblock btn%}
+                    <a href="{% url 'logout' %}"><button class="login_button">{{ user }}</button></a>
+                </div>
+            {% else %}
+                <div class="btns">
+                    <a href="{% url 'login' %}"><button class="login_button">Войти</button></a>
+                    <a href="{% url 'register'%}"><button class="login_button">Регистрация</button></a>
+                </div>
+            {% endif %}
+
+
+        </div>
+
+    </header>
+
+
+    <div class="category-wrap">
+        <h3>Куда направитесь?</h3>
+        <ul>
+          <li><a href="{% url 'dog'%}">Наши собачки</a></li>
+          <li><a href="{% url 'cat'%}">Наши кошечки</a></li>
+          <li><a href="{% url 'quest'%}">Частые вопросы</a></li>
+          <li><a href="{% url 'about'%}">О нас</a></li>
+        </ul>
+    </div>
+    {% block content%}{% endblock content%}
+</body>
+</html>

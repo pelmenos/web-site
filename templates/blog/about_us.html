@@ -1,0 +1,76 @@
+{% extends 'base.html'%}
+
+{%block title%}О нас{%endblock title%}
+
+{% block content%}
+        <div class="container">
+            <div class="main_us">
+                <div class="text_us">
+                    <p>Мы один из приютов города Новосибирск. Находимя по адресу @@@</p>
+                    <p>Мы ухаживаем за каждой кошечкой или собачкой, которые к нам попадают, до тех пор, пока не найдём ему нового хозяйна.</p>
+                    <p>В нашем приюте есть команда из 6-ти человек</p>
+                    <p>Какими методами мы сейчас вам и расскажем.</p>
+                </div>
+            </div>
+            
+            <div class="main_us">
+                <div class="text_us">
+                    <h1>Питание</h1>
+                    <p>Едут они 3 раза в день</p>
+                    <p>Собак мы кормим данными элитными кормами, производимые за рубежом:</p>
+                    <ul>
+                        <li>Profine</li>
+                        <li>Monge</li>
+                        <li>Crockex Wellness</li>
+                    </ul>
+                    <p>Кошек же мы кормим этими элитными кормами производимыми за рубежом:</p>
+                    <ul>
+                        <li>Brit Care</li>
+                        <li>Monge BWild</li>
+                        <li>Savory</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main_us">
+                <div class="text_us">
+                    <h1>Уход</h1>
+                    <p>Особый уход который мы проявляем нашим братьям меньшим:</p>
+                    <ul>
+                        <li>Мы гуляем с ними регулярно</li>
+                        <li>Моем после каждой прогулки</li>
+                        <li>Обеспечиваем медицинскую помощь</li>
+                    </ul>
+                    <p>Они живут в комфортных условиях для проживания:</p>
+                    <ul>
+                        <li>Для собак у нас имеются первоклассные вольеры</li>
+                        <li>Для кошек у нас есть первоклассные коробки</li>
+                        <li>Всё здание покрыто антиаллергенным покрытием</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main_us" style="border-bottom: 2px solid #e6007e;">
+                <div class="text_us">
+                    <h1>Команда</h1>
+
+                    <div class='nachinka'>
+                        <ul>
+                            {% for item in team_list %}
+                            <li>
+                                <img src="{{item.image.url}}" alt="ОН не дал нам свой фото">
+                                <p>{{item.name}} {{item.surname}}</p>
+                                <span>{{item.job}}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <div class="footer">
+
+    </div>
+{% endblock content%}
